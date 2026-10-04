@@ -248,7 +248,7 @@ def run_video_loop(stop_event: threading.Event) -> None:
             confs    = boxes.conf.cpu().numpy()
 
             for (x1, y1, x2, y2), tid, cid, conf in zip(xyxy, ids, cls_ids, confs):
-                # Centre-bottom of the box is a stable anchor point
+                # Vertical centre of the box is a stable anchor point
                 cy = (y1 + y2) / 2.0
 
                 # --- Line-crossing detection ---
