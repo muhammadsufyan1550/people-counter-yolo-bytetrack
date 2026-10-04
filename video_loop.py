@@ -5,7 +5,7 @@
 #   Camera/file → YOLO detect → ByteTrack assign IDs → line-cross check
 #   → draw overlay → update shared state → log event to DB
 #
-# Interview Q: "How does ByteTrack work at a high level?"
+# Design note: "How does ByteTrack work at a high level?"
 # A: ByteTrack separates detections into high-confidence and low-confidence
 #    bins.  High-confidence ones are matched to existing tracks via IoU.
 #    Low-confidence ones get a second chance — matched to unmatched tracks
@@ -96,7 +96,7 @@ def _open_capture(source, max_retries: int, delay: float):
     For file sources, max_retries=1 (no retry needed; failure = file missing).
     For RTSP sources, retries allow recovery from transient network drops.
 
-    Interview Q: "How do you handle an RTSP stream that drops mid-session?"
+    Design note: "How do you handle an RTSP stream that drops mid-session?"
     A: On cap.read() failure, release the old handle, set a 'reconnecting' flag
        visible in /stats, sleep briefly, then re-open — up to a max retry count.
        Exponential backoff would be better in production; here we use a fixed
