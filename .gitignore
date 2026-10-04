@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pt
+*.onnx
+*.onnx.data
+*.engine
+events.db
+*.pyc
+.DS_Store
+*.mp4
+GLOSSARY.md
+PROJECT_GUIDE.md

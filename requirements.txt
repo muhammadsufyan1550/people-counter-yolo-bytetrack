@@ -1,0 +1,10 @@
+ultralytics==8.3.145    # YOLOv8 — detection + ByteTrack built-in
+opencv-python==4.10.0.84  # video I/O and drawing
+fastapi==0.115.14          # REST API
+uvicorn[standard]==0.34.3  # ASGI server for FastAPI
+psutil==7.0.0              # CPU/RAM metrics
+lap>=0.5.12                # ByteTrack linear assignment (must be in venv)
+onnx>=1.12.0               # model exchange format — keep whatever wheel pip resolves (>=1.12 is fine)
+onnxruntime>=1.19.0        # CPU inference runtime (for benchmark.py)
+onnxslim>=0.1.53           # ONNX graph simplification used by Ultralytics export
+onnxscript                 # required by PyTorch 2.x torch.onnx export path
